@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUMARK PHARMA | A New Vision for Better Health</title>
+    <style>
+        :root {
+            --primary-red: #bd0000;
+            --deep-red: #7a0000;
+            --card-red: #940000;
+            --dark-overlay: rgba(0, 0, 0, 0.25);
+            --white: #ffffff;
+            --soft-white: rgba(255, 255, 255, 0.88);
+            --border-light: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(160deg, var(--primary-red) 0%, var(--deep-red) 100%);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Top Marquee Ticker */
+        .ticker-bar {
+            background-color: #4d0000;
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 7px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            text-transform: uppercase;
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: rgba(138, 0, 0, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .brand-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title strong {
+            font-size: 20px;
+            letter-spacing: 1.2px;
+            line-height: 1.1;
+        }
+
+        .brand-title span {
+            font-size: 11px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 75px 20px 65px;
+            text-align: center;
+        }
+
+        .hero-logo-box {
+            margin: 0 auto 20px;
+            width: 85px;
+            height: 85px;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-red);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.7rem;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-size: 1.12rem;
+            color: var(--soft-white);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-red);
+            padding: 13px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            padding: 13px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--white);
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.12);
+        }
+
+        /* Common Section */
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 20px;
+        }
+
+        .section-dark {
+            background-color: var(--dark-overlay);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: 2.1rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--soft-white);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* Grids & Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background-color: var(--card-red);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            transition: transform 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--white);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--soft-white);
+            font-size: 0.95rem;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: var(--card-red);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .product-img-box {
+            background-color: var(--white);
+            padding: 18px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-img-box img {
+            width: 100%;
+            height: 210px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .pack-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .salt-preview {
+            font-size: 0.9rem;
+            color: var(--soft-white);
+            margin-bottom: 18px;
+            min-height: 45px;
+        }
+
+        .coming-soon-card {
+            background-color: rgba(0,0,0,0.25);
+            border: 1px dashed var(--border-light);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .coming-soon-card span {
+            background-color: var(--white);
+            color: var(--primary-red);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .coming-soon-card h4 {
+            margin-top: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Product Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.82);
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: linear-gradient(160deg, #9e0000 0%, #5c0000 100%);
+            border: 1px solid var(--white);
+            max-width: 680px;
+            margin: 30px auto;
+            border-radius: 14px;
+            padding: 28px;
+            position: relative;
+            color: var(--white);
+        }
+
+        .close-btn {
+            background: var(--white);
+            color: var(--primary-red);
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 260px;
+            object-fit: contain;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 18px;
+        }
+
+        .detail-block {
+            background: rgba(0,0,0,0.22);
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            border-left: 4px solid var(--white);
+        }
+
+        .detail-block h4 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        /* Contact & Forms */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .form-box input, .form-box select, .form-box textarea {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            background-color: rgba(255,255,255,0.12);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .form-box input::placeholder, .form-box textarea::placeholder {
+            color: rgba(255,255,255,0.72);
+        }
+
+        .form-box select option {
+            background-color: var(--deep-red);
+            color: var(--white);
+        }
+
+        .office-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #420000;
+            text-align: center;
+            padding: 28px 20px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.92rem;
+            color: var(--soft-white);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+                gap: 18px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Strip -->
+    <div class="ticker-bar">
+        MELA MARK • MELA MARK S • ZUMARK PHARMA • MELA MARK SOAP • A NEW VISION FOR BETTER HEALTH
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo-link">
+                <!-- ZUMARK Capsule SVG Logo -->
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 10 H48 V32 H25 C14 32 10 25 10 21 C10 15 15 10 25 10 Z" fill="white"/>
+                    <path d="M52 10 H75 C85 10 90 15 90 21 C90 27 85 32 75 32 H52 V10 Z" fill="white"/>
+                    <path d="M90 24 C86 42 56 46 38 66 L10 74 C16 54 46 48 64 32 L90 24 Z" fill="white"/>
+                    <path d="M25 68 H48 V90 H25 C15 90 10 85 10 79 C10 73 15 68 25 68 Z" fill="white"/>
+                    <path d="M52 68 H75 C85 68 90 73 90 79 C90 85 85 90 75 90 H52 V68 Z" fill="white"/>
+                    <circle cx="22" cy="75" r="2.5" fill="#bd0000"/>
+                    <circle cx="29" cy="75" r="2.5" fill="#bd0000"/>
+                    <circle cx="22" cy="80" r="2.5" fill="#bd0000"/>
+                    <circle cx="29" cy="80" r="2.5" fill="#bd0000"/>
+                    <circle cx="36" cy="80" r="2.2" fill="#bd0000"/>
+                    <circle cx="41" cy="80" r="1.5" fill="#bd0000"/>
+                    <circle cx="29" cy="85" r="2.5" fill="#bd0000"/>
+                </svg>
+                <div class="brand-title">
+                    <strong>ZUMARK PHARMA</strong>
+                    <span>A New Vision for Better Health</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-logo-box">
+            <svg width="85" height="85" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 10 H48 V32 H25 C14 32 10 25 10 21 C10 15 15 10 25 10 Z" fill="white"/>
+                <path d="M52 10 H75 C85 10 90 15 90 21 C90 27 85 32 75 32 H52 V10 Z" fill="white"/>
+                <path d="M90 24 C86 42 56 46 38 66 L10 74 C16 54 46 48 64 32 L90 24 Z" fill="white"/>
+                <path d="M25 68 H48 V90 H25 C15 90 10 85 10 79 C10 73 15 68 25 68 Z" fill="white"/>
+                <path d="M52 68 H75 C85 68 90 73 90 79 C90 85 85 90 75 90 H52 V68 Z" fill="white"/>
+                <circle cx="22" cy="75" r="2.5" fill="#bd0000"/>
+                <circle cx="29" cy="75" r="2.5" fill="#bd0000"/>
+                <circle cx="22" cy="80" r="2.5" fill="#bd0000"/>
+                <circle cx="29" cy="80" r="2.5" fill="#bd0000"/>
+                <circle cx="36" cy="80" r="2.2" fill="#bd0000"/>
+                <circle cx="41" cy="80" r="1.5" fill="#bd0000"/>
+                <circle cx="29" cy="85" r="2.5" fill="#bd0000"/>
+            </svg>
+        </div>
+        <div class="badge-pill">A Mumbai based, fast growing pharmaceutical company</div>
+        <h1>ZUMARK PHARMA, A New Vision for Better Health</h1>
+        <p>ZUMARK PHARMA brings you the MELA MARK skin care range, with clear product names, clearly printed compositions and one trusted look on every pack.</p>
+        <div class="hero-btns">
+            <a href="#products" class="btn-white">Explore products</a>
+            <a href="#contact" class="btn-outline">Send an inquiry</a>
+        </div>
+    </section>
+
+    <!-- The MELA MARK Range & Products -->
+    <section id="products" class="section section-dark">
+        <div class="section-header">
+            <h2>The MELA MARK range</h2>
+            <p>Three products, one clear identity. Tap a product to open its full details.</p>
+        </div>
+
+        <div class="grid-3">
+            <!-- Product 1: MELA MARK Cream -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="pack-badge">30 g</span>
+                    <!-- यहाँ आप अपनी अपलोड की हुई इमेज का नाम लगा सकते हैं जैसे: mela-mark-cream.jpg -->
+                    <img src="mela-mark-cream.jpg" alt="MELA MARK Cream pack and tube" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display:none; height:210px; align-items:center; justify-content:center; color:#bd0000; font-weight:800; font-size:1.3rem;">MELA MARK Cream (30 g)</div>
+                </div>
+                <div class="product-info">
+                    <h3>MELA MARK Cream</h3>
+                    <p class="salt-preview">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</p>
+                    <button class="btn-white" style="width:100%;" onclick="openModal('cream')">Open details</button>
+                </div>
+            </div>
+
+            <!-- Product 2: MELA MARK S Ointment -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="pack-badge">15 g</span>
+                    <img src="mela-mark-s.jpg" alt="MELA MARK S Ointment pack and tube" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display:none; height:210px; align-items:center; justify-content:center; color:#bd0000; font-weight:800; font-size:1.3rem;">MELA MARK S Ointment (15 g)</div>
+                </div>
+                <div class="product-info">
+                    <h3>MELA MARK S Ointment</h3>
+                    <p class="salt-preview">Clobetasol Propionate and Salicylic Acid</p>
+                    <button class="btn-white" style="width:100%;" onclick="openModal('ointment')">Open details</button>
+                </div>
+            </div>
+
+            <!-- Product 3: MELA MARK Soap -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="pack-badge">Soap</span>
+                    <img src="mela-mark-soap.jpg" alt="MELA MARK Soap box and bar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display:none; height:210px; align-items:center; justify-content:center; color:#bd0000; font-weight:800; font-size:1.3rem;">MELA MARK Soap</div>
+                </div>
+                <div class="product-info">
+                    <h3>MELA MARK Soap</h3>
+                    <p class="salt-preview">From the MELA MARK range • Skin Care Cleansing Bar</p>
+                    <button class="btn-white" style="width:100%;" onclick="openModal('soap')">Open details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="section-header" style="margin-top: 60px; margin-bottom: 30px;">
+            <h2>Coming soon</h2>
+            <p>New ZUMARK PHARMA brands are on the way.</p>
+        </div>
+        <div class="grid-3">
+            <div class="coming-soon-card">
+                <span>Coming soon</span>
+                <h4>New brand</h4>
+            </div>
+            <div class="coming-soon-card">
+                <span>Coming soon</span>
+                <h4>New brand</h4>
+            </div>
+            <div class="coming-soon-card">
+                <span>Coming soon</span>
+                <h4>New brand</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ZUMARK PHARMA -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Why ZUMARK PHARMA</h2>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <h3>Clear labelling</h3>
+                <p>Product name, salt composition and pack size are easy to find on every pack.</p>
+            </div>
+            <div class="card">
+                <h3>One brand look</h3>
+                <p>The red Z capsule logo and red and white colours stay consistent across the range.</p>
+            </div>
+            <div class="card">
+                <h3>Mumbai based</h3>
+                <p>Our office is in Nalasopara East, in the Mumbai region, easy to reach for partners.</p>
+            </div>
+            <div class="card">
+                <h3>Growing fast</h3>
+                <p>New ZUMARK PHARMA brands are coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About ZUMARK PHARMA -->
+    <section id="about" class="section section-dark">
+        <div class="section-header">
+            <h2>About ZUMARK PHARMA</h2>
+        </div>
+        <div class="card" style="max-width: 900px; margin: 0 auto 40px; text-align: center;">
+            <p style="margin-bottom: 14px; font-size: 1.05rem;">ZUMARK PHARMA is a Mumbai based pharmaceutical company with its office in Nalasopara East. We are a young, fast growing company with one simple vision: <strong>A New Vision for Better Health.</strong></p>
+            <p style="margin-bottom: 14px; font-size: 1.05rem;">Everything we put on a pack is meant to be clear. The product name is bold, the salt composition is easy to read, and the red Z capsule logo sits in the same place every time. Doctors, chemists and partners can see at a glance what a product is and who makes it.</p>
+            <p style="font-size: 1.05rem;">Our MELA MARK range is the first chapter of the ZUMARK PHARMA story, and new brands are coming soon.</p>
+        </div>
+
+        <div class="section-header" style="margin-bottom: 30px;">
+            <h2>What we stand for</h2>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <h3>Clarity</h3>
+                <p>Clear names, clear salts, clear packs. No confusion about what is inside.</p>
+            </div>
+            <div class="card">
+                <h3>Consistency</h3>
+                <p>One brand identity from the carton to the tube to the soap bar.</p>
+            </div>
+            <div class="card">
+                <h3>Growth</h3>
+                <p>We are building a range of skin care brands, and more are coming soon.</p>
+            </div>
+            <div class="card">
+                <h3>Accessibility</h3>
+                <p>Call, WhatsApp or email us directly. We reply to every inquiry.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Office -->
+    <section id="contact" class="section">
+        <div class="section-header">
+            <h2>Visit our office & Send an inquiry</h2>
+            <p>Fill a box and press send. Your message opens in WhatsApp, ready to send to us.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <!-- Office Details -->
+            <div class="card">
+                <h3>ZUMARK PHARMA</h3>
+                <p style="margin: 12px 0;">
+                    Gala No. 04, 184 Swami Vivekanand,<br>
+                    Santosh Bhawan Naka,<br>
+                    Nalasopara East, Mumbai region, India
+                </p>
+                <p><strong>Email:</strong> info@zumarkpharma.in</p>
+                <p><strong>Phone / WhatsApp:</strong> +91 89089 08913</p>
+
+                <div class="office-actions">
+                    <a href="https://maps.google.com/?q=Gala+No.+04,+184+Swami+Vivekanand,+Santosh+Bhawan+Naka,+Nalasopara+East" target="_blank" class="btn-white">Open in Maps</a>
+                    <a href="tel:+918908908913" class="btn-outline">Call +91 89089 08913</a>
+                    <a href="https://wa.me/918908908913" target="_blank" class="btn-white">Chat on WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product Inquiry Form -->
+            <form class="card form-box" onsubmit="sendProductInquiry(event)">
+                <h3>Product inquiry</h3>
+                <input type="text" id="p_name" placeholder="Your name" required>
+                <input type="tel" id="p_phone" placeholder="Phone number" required>
+                <select id="p_product" required>
+                    <option value="MELA MARK Cream (30 g)">MELA MARK Cream (30 g)</option>
+                    <option value="MELA MARK S Ointment (15 g)">MELA MARK S Ointment (15 g)</option>
+                    <option value="MELA MARK Soap">MELA MARK Soap</option>
+                </select>
+                <textarea id="p_msg" rows="3" placeholder="Message" required></textarea>
+                <button type="submit" class="btn-white" style="width:100%;">Send Product Inquiry</button>
+            </form>
+
+            <!-- Business Inquiry Form -->
+            <form class="card form-box" onsubmit="sendBusinessInquiry(event)">
+                <h3>Business inquiry</h3>
+                <input type="text" id="b_name" placeholder="Name" required>
+                <input type="tel" id="b_phone" placeholder="Phone number" required>
+                <input type="text" id="b_company" placeholder="Company / shop and city" required>
+                <textarea id="b_msg" rows="3" placeholder="How can we work together?" required></textarea>
+                <button type="submit" class="btn-white" style="width:100%;">Send Business Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 ZUMARK PHARMA • Mumbai based • Nalasopara East • info@zumarkpharma.in</p>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">← All products</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const whatsappPhone = "918908908913";
+
+        const productDetails = {
+            cream: {
+                title: "MELA MARK Cream",
+                pack: "30 g",
+                img: "mela-mark-cream.jpg",
+                desc: "For Pigmentation & Uneven Skin Tone, as printed on the pack. Brand line: A New Way for a Better Skin.",
+                saltsTitle: "Key ingredients (salt)",
+                salts: ["Betamethasone Valerate", "Clindamycin Phosphate", "Nicotinamide", "Vitamin E Acetate"],
+                printed: "Reduces Dark Spots, Melasma Care, Brightens Skin, Evens Complexion.",
+                noteTitle: "Use",
+                note: "Use only as advised by your doctor or pharmacist, and read the pack label.",
+                cta: "Inquire about MELA MARK"
+            },
+            ointment: {
+                title: "MELA MARK S Ointment",
+                pack: "15 g",
+                img: "mela-mark-s.jpg",
+                desc: "For Pigmentation & Dark Spots, as printed on the pack. The pack carries the line Smooth, Clear, Healthy Skin.",
+                saltsTitle: "Composition",
+                salts: ["Clobetasol Propionate", "Salicylic Acid"],
+                printed: "Reduces Dark Spots, Lightens Pigmentation, Soothes Irritation.",
+                noteTitle: "Prescription",
+                note: "The pack shows the Rx symbol. Use only as advised by your doctor.",
+                cta: "Inquire about MELA MARK S"
+            },
+            soap: {
+                title: "MELA MARK Soap",
+                pack: "Soap",
+                img: "mela-mark-soap.jpg",
+                desc: "A soap from the MELA MARK range, in the same red and white ZUMARK PHARMA packaging.",
+                saltsTitle: "Ingredients (as printed on the pack)",
+                salts: ["Soap Noodles, Purified Talc Powder, Perfume, Glycerin, Light Liquid Paraffin, Propylene Glycol, Disodium EDTA, Titanium Dioxide, Almond Oil, Coconut Oil, Silicon Oil, Butylated Hydroxytoluene, Aloe Vera Extract, Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate and Purified Water."],
+                printed: "MELA MARK Skin Care Cleansing Bar.",
+                noteTitle: "Usage",
+                note: "Read the pack label before use.",
+                cta: "Inquire about MELA MARK Soap"
+            }
+        };
+
+        function openModal(key) {
+            const p = productDetails[key];
+            const saltsList = p.salts.map(s => `<li>${s}</li>`).join("");
+            document.getElementById("modalBody").innerHTML = `
+                <img src="${p.img}" class="modal-img" alt="${p.title}" onerror="this.style.display='none'">
+                <span class="badge-pill">${p.pack}</span>
+                <h2 style="margin-bottom:8px;">${p.title}</h2>
+                <p style="margin-bottom:16px;">${p.desc}</p>
+                <div class="detail-block">
+                    <h4>${p.saltsTitle}</h4>
+                    <ul style="padding-left:18px;">${saltsList}</ul>
+                </div>
+                <div class="detail-block">
+                    <h4>Printed on the pack</h4>
+                    <p>${p.printed}</p>
+                </div>
+                <div class="detail-block">
+                    <h4>${p.noteTitle}</h4>
+                    <p>${p.note}</p>
+                </div>
+                <a href="https://wa.me/${whatsappPhone}?text=Hello%20ZUMARK%20PHARMA,%20I%20would%20like%20to%20${encodeURIComponent(p.cta)}." target="_blank" class="btn-white" style="display:block; text-align:center; margin-top:16px;">${p.cta}</a>
+            `;
+            document.getElementById("productModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+
+        function sendProductInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById("p_name").value;
+            const phone = document.getElementById("p_phone").value;
+            const prod = document.getElementById("p_product").value;
+            const msg = document.getElementById("p_msg").value;
+            const text = `*Product Inquiry - ZUMARK PHARMA*%0AName: ${name}%0APhone: ${phone}%0AProduct: ${prod}%0AMessage: ${msg}`;
+            window.open(`https://wa.me/${whatsappPhone}?text=${text}`, "_blank");
+        }
+
+        function sendBusinessInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById("b_name").value;
+            const phone = document.getElementById("b_phone").value;
+            const company = document.getElementById("b_company").value;
+            const msg = document.getElementById("b_msg").value;
+            const text = `*Business Inquiry - ZUMARK PHARMA*%0AName: ${name}%0APhone: ${phone}%0ACompany/City: ${company}%0AMessage: ${msg}`;
+            window.open(`https://wa.me/${whatsappPhone}?text=${text}`, "_blank");
+        }
+    </script>
+
+</body>
+</html>
